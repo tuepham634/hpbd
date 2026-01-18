@@ -1,6 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useRef } from 'react'
 import { OrbitControls } from '@react-three/drei'
-import { extend, useFrame, useThree } from '@react-three/fiber'
+import {useFrame, useThree } from '@react-three/fiber'
 import { EffectComposer, Bloom, Vignette, ChromaticAberration } from '@react-three/postprocessing'
 import { BlendFunction } from 'postprocessing'
 import { Galaxy } from './Galaxy'
@@ -97,7 +98,7 @@ export function Experience() {
       </group>
 
       {/* Enhanced Post Processing */}
-      <EffectComposer disableNormalPass>
+      <EffectComposer enableNormalPass={false}>
         <Bloom 
           luminanceThreshold={0.15} 
           mipmapBlur 

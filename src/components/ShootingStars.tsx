@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
@@ -6,7 +7,7 @@ export function ShootingStars() {
   const starsRef = useRef<THREE.Group>(null!)
   
   // Create 5 shooting stars
-  const stars = Array.from({ length: 5 }, (_, i) => ({
+  const stars = Array.from({ length: 5 }, () => ({
     position: new THREE.Vector3(
       (Math.random() - 0.5) * 20,
       Math.random() * 10 + 5,
@@ -21,7 +22,7 @@ export function ShootingStars() {
     color: new THREE.Color().setHSL(Math.random(), 1, 0.7)
   }))
 
-  useFrame((state, delta) => {
+  useFrame((_, delta) => {
     if (!starsRef.current) return
 
     starsRef.current.children.forEach((star, i) => {
